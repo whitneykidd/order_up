@@ -23,4 +23,9 @@ RSpec.describe "Dish Show Page" do
     expect(page).to have_content(@bert.name)
     expect(page).to have_no_content(@ernie.name)
   end
+
+  it "can see total calorie count for that dish" do
+    expect(current_path).to eq("/dishes/#{@nachos.id}")
+    expect(page).to have_content("Total Calories: 73")
+  end
 end
