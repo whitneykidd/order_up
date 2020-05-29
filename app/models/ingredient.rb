@@ -5,4 +5,8 @@ class Ingredient < ApplicationRecord
   def self.total_calories
     sum(:calories)
   end
+
+  def self.unique_names
+    pluck(:name).uniq
+  end
 end
