@@ -9,11 +9,12 @@ RSpec.describe "Dish Show Page" do
     @cheese = @nachos.ingredients.create(name: "Cheese", calories: 16)
     @salsa = @nachos.ingredients.create(name: "Salsa", calories: 25)
 
-    visit "/dishes/#{@bert.id}"
+    visit "/dishes/#{@nachos.id}"
   end
 
   it "can see dish's name, chef's name, and dish's ingredients" do
-    expect(current_path).to eq("/dishes/#{@bert.id}")
+    expect(current_path).to eq("/dishes/#{@nachos.id}")
+
     expect(page).to have_content(@nachos.name)
     expect(page).to have_content(@chips.name)
     expect(page).to have_content(@cheese.name)
@@ -21,12 +22,5 @@ RSpec.describe "Dish Show Page" do
 
     expect(page).to have_content(@bert.name)
     expect(page).to have_no_content(@ernie.name)
-
   end
 end
-
-# Story 1 of 3
-# As a visitor
-# When I visit a dish's show page
-# I see a list of ingredients for that dish
-# and the chef's name
