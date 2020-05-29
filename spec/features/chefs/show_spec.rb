@@ -32,25 +32,17 @@ RSpec.describe "Chef Show Page" do
     end
   end
 
-    xit "can see chef's 3 most popular ingredients" do
-      salsa_dish =Dish.create(name: "Salsa Dish", description: "Salsa dish", chef_id: @bert.id)
-      olives = @nachos.ingredients.create(name: "Olives", calories: 32)
-      salsa = salsa_dish.ingredients.create(name: "Salsa", calories: 10)
-      chips = salsa_dish.ingredients.create(name: "Tortilla Chips", calories: 10)
+  xit "can see chef's 3 most popular ingredients" do
+    salsa_dish =Dish.create(name: "Salsa Dish", description: "Salsa dish", chef_id: @bert.id)
+    olives = @nachos.ingredients.create(name: "Olives", calories: 32)
+    salsa = salsa_dish.ingredients.create(name: "Salsa", calories: 10)
+    chips = salsa_dish.ingredients.create(name: "Tortilla Chips", calories: 10)
 
-      within '.top-ingredients' do
-        expect(page).to have_content("Cheese") 
-        expect(page).to have_content("Salsa") 
-        expect(page).to have_content("Chips") 
-        expect(page).to have_no_content("Olives") 
-      end
- 
-   
+    within '.top-ingredients' do
+      expect(page).to have_content("Cheese") 
+      expect(page).to have_content("Salsa") 
+      expect(page).to have_content("Chips") 
+      expect(page).to have_no_content("Olives") 
+    end
   end
 end
-
-# Extension
-# As a visitor
-# When I visit a chef's show page
-# I see the three most popular ingredients that the chef uses in their dishes
-# (Popularity is based off of how many dishes use that ingredient)
